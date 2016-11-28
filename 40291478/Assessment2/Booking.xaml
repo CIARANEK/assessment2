@@ -1,0 +1,22 @@
+﻿<Window x:Class="Booking"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Booking" Height="431" Width="512">
+    <Grid>
+        <Label Content="Arrival Date" HorizontalAlignment="Left" Height="30" Margin="0,25,0,0" VerticalAlignment="Top" Width="126"/>
+        <Label Content="Number of Guests" HorizontalAlignment="Left" Height="30" Margin="0,242,0,0" VerticalAlignment="Top" Width="126"/>
+        <Label Content="Departure Date" HorizontalAlignment="Left" Height="30" Margin="0,95,0,0" VerticalAlignment="Top" Width="126"/>
+        <Label Content="Booking Reference Number" HorizontalAlignment="Left" Height="30" Margin="0,167,0,0" VerticalAlignment="Top" Width="160"/>
+        <Button x:Name="btnAmend" Content="Amend" HorizontalAlignment="Left" Height="45" Margin="0,306,0,0" VerticalAlignment="Top" Width="117"/>
+        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Height="45" Margin="0,356,0,0" VerticalAlignment="Top" Width="117"/>
+        <Button x:Name="btnInvoice" Content="Invoice" HorizontalAlignment="Left" Height="45" Margin="387,356,0,0" VerticalAlignment="Top" Width="117"/>
+        <Button x:Name="btnExtras" Content="Extras" HorizontalAlignment="Left" Height="45" Margin="387,306,0,0" VerticalAlignment="Top" Width="117"/>
+        <Button x:Name="btnGuest" Content="Guests" HorizontalAlignment="Left" Height="45" Margin="265,329,0,0" VerticalAlignment="Top" Width="117"/>
+        <Button x:Name="btnCustomer" Content="Customer" HorizontalAlignment="Left" Height="45" Margin="122,329,0,0" VerticalAlignment="Top" Width="117"/>
+        <Label x:Name="lblbookRef" Content="" HorizontalAlignment="Left" Height="30" Margin="165,167,0,0" VerticalAlignment="Top" Width="126"/>
+        <TextBox x:Name="txtGuests" HorizontalAlignment="Left" Height="24" Margin="165,248,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="txtArrivalDate" HorizontalAlignment="Left" Height="24" Margin="165,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
+        <TextBox x:Name="txtDepartureDate" HorizontalAlignment="Left" Height="24" Margin="165,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="175"/>
+
+    </Grid>
+</Window>
