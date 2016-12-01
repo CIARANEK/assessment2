@@ -10,11 +10,12 @@
         <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Height="39" Margin="10,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265"/>
         <Label Content="Customer Reference Number" HorizontalAlignment="Left" Height="33" Margin="10,239,0,0" VerticalAlignment="Top" Width="219" Cursor=""/>
         <TextBox x:Name="txtCustRef" HorizontalAlignment="Left" Height="39" Margin="10,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265"/>
-        <Button Content="Add Customer" HorizontalAlignment="Left" Height="28" Margin="13,316,0,0" VerticalAlignment="Top" Width="132"/>
-        <Button Content="Delete Customer" HorizontalAlignment="Left" Height="28" Margin="384,316,0,0" VerticalAlignment="Top" Width="132"/>
-        <Button Content="Update Customer" HorizontalAlignment="Left" Height="28" Margin="200,316,0,0" VerticalAlignment="Top" Width="132"/>
-        <Button Content="Procced To Booking Info" HorizontalAlignment="Left" Height="52" Margin="371,439,0,0" VerticalAlignment="Top" Width="145" Click="Button_Click"/>
         <Button x:Name="btnClear" Content="Clear" HorizontalAlignment="Left" Height="52" Margin="10,439,0,0" VerticalAlignment="Top" Width="145" Click="btnClear_Click"/>
+        <Button x:Name="btnCustAdd" Content="Add Customer" HorizontalAlignment="Left" Height="29" Margin="10,326,0,0" VerticalAlignment="Top" Width="135" Click="btnCustAdd_Click"/>
+        <Button x:Name="btnUpCust" Content="Update Customer" HorizontalAlignment="Left" Height="29" Margin="195,326,0,0" VerticalAlignment="Top" Width="135"/>
+        <Button x:Name="btnDelCust" Content="Delete Customer" HorizontalAlignment="Left" Height="29" Margin="379,326,0,0" VerticalAlignment="Top" Width="135"/>
+        <Button x:Name="btnBook" Content="To Booking" HorizontalAlignment="Left" Height="51" Margin="369,439,0,0" VerticalAlignment="Top" Width="145" Click="btnBook_Click"/>
+        <Button x:Name="btnInfo" Content="Get Info" HorizontalAlignment="Left" Height="39" Margin="301,272,0,0" VerticalAlignment="Top" Width="135" Click="btnInfo_Click"/>
 
     </Grid>
 </Window>
