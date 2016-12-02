@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 //Customer Singleton Class
 namespace Assessment2
 {
+    //For only once instance of customer at a time
     class CustomerSingleton
     {
         //List of customers
@@ -17,7 +18,7 @@ namespace Assessment2
               
         private static CustomerSingleton instance;
                 
-        public static CustomerSingleton Instance()
+        private static CustomerSingleton Instance()
     {
             if (instance == null)
             {

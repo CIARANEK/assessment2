@@ -9,19 +9,38 @@
         <TextBox x:Name="txtBookRef" HorizontalAlignment="Left" Height="28" Margin="168,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219"/>
         <DatePicker x:Name="dpDepart" HorizontalAlignment="Left" Height="28" Margin="168,43,0,0" VerticalAlignment="Top" Width="219"/>
         <DatePicker x:Name="dpArrive" HorizontalAlignment="Left" Height="28" Margin="168,10,0,0" VerticalAlignment="Top" Width="219"/>
-        <Button x:Name="btnInvoice" Content="Invoice" HorizontalAlignment="Left" Height="25" Margin="10,109,0,0" VerticalAlignment="Top" Width="93" Click="btnInvoice_Click"/>
-        <Button x:Name="btnAddBook" Content="Add Booking" HorizontalAlignment="Left" Height="25" Margin="108,109,0,0" VerticalAlignment="Top" Width="93"/>
-        <Button x:Name="btnUpBook" Content="Update Booking" HorizontalAlignment="Left" Height="25" Margin="206,109,0,0" VerticalAlignment="Top" Width="93"/>
-        <Button x:Name="btnDelBook" Content="Delete Booking" HorizontalAlignment="Left" Height="25" Margin="307,109,0,0" VerticalAlignment="Top" Width="93"/>
-        <Button Content="Back To Customers" HorizontalAlignment="Left" Height="45" Margin="10,392,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click"/>
+        <Button x:Name="btnInvoice" Content="Invoice" HorizontalAlignment="Left" Height="45" Margin="151,392,0,0" VerticalAlignment="Top" Width="114" Click="btnInvoice_Click"/>
+        <Button x:Name="btnAddBook" Content="Add Booking" HorizontalAlignment="Left" Height="25" Margin="98,109,0,0" VerticalAlignment="Top" Width="93" Click="btnAddBook_Click"/>
+        <Button x:Name="btnUpBook" Content="Update Booking" HorizontalAlignment="Left" Height="25" Margin="196,109,0,0" VerticalAlignment="Top" Width="93" Click="btnUpBook_Click"/>
+        <Button x:Name="btnDelBook" Content="Delete Booking" HorizontalAlignment="Left" Height="25" Margin="294,109,0,0" VerticalAlignment="Top" Width="93" Click="btnDelBook_Click"/>
+        <Button x:Name="btnCust" Content="Back To Customers" HorizontalAlignment="Left" Height="45" Margin="10,392,0,0" VerticalAlignment="Top" Width="114" Click="btnCust_Click"/>
         <Button x:Name="btnGuests" Content="Guests" HorizontalAlignment="Left" Height="45" Margin="286,392,0,0" VerticalAlignment="Top" Width="114" Click="btnGuests_Click"/>
-        <CheckBox x:Name="chkHire" Content="Car Hire" HorizontalAlignment="Left" Height="21" Margin="10,277,0,0" VerticalAlignment="Top" Width="75" Checked="chkHire_Checked" FontWeight="Bold"/>
-        <DatePicker x:Name="dpStart" HorizontalAlignment="Left" Height="24" Margin="122,297,0,0" VerticalAlignment="Top" Width="158" IsEnabled="False"/>
-        <DatePicker x:Name="dpEnd" HorizontalAlignment="Left" Height="24" Margin="122,326,0,0" VerticalAlignment="Top" Width="158" IsEnabled="False"/>
-        <Label Content="Start Date" HorizontalAlignment="Left" Height="23" Margin="10,298,0,0" VerticalAlignment="Top" Width="93"/>
-        <Label Content="End Date" HorizontalAlignment="Left" Height="24" Margin="10,326,0,0" VerticalAlignment="Top" Width="93"/>
-        <Label Content="Name Of Driver" HorizontalAlignment="Left" Height="32" Margin="10,355,0,0" VerticalAlignment="Top" Width="93"/>
-        <TextBox x:Name="txtDriver" HorizontalAlignment="Left" Height="24" Margin="122,359,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158" IsEnabled="False"/>
-        <CheckBox Content="Extras" HorizontalAlignment="Left" Height="18" Margin="10,139,0,0" VerticalAlignment="Top" Width="93" FontWeight="Bold"/>
+        <DatePicker x:Name="dpStart" HorizontalAlignment="Left" Height="24" Margin="122,295,0,0" VerticalAlignment="Top" Width="158"/>
+        <DatePicker x:Name="dpEnd" HorizontalAlignment="Left" Height="24" Margin="122,324,0,0" VerticalAlignment="Top" Width="158"/>
+        <Label Content="Start Date" HorizontalAlignment="Left" Height="23" Margin="10,296,0,0" VerticalAlignment="Top" Width="93"/>
+        <Label Content="End Date" HorizontalAlignment="Left" Height="24" Margin="10,324,0,0" VerticalAlignment="Top" Width="93"/>
+        <Label Content="Name Of Driver" HorizontalAlignment="Left" Height="32" Margin="10,353,0,0" VerticalAlignment="Top" Width="93"/>
+        <TextBox x:Name="txtDriver" HorizontalAlignment="Left" Height="24" Margin="122,357,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
+        <Button x:Name="btnDelHire" Content="Delete Hire" HorizontalAlignment="Left" Height="24" Margin="307,357,0,0" VerticalAlignment="Top" Width="93" Click="btnDelHire_Click"/>
+        <Label Content="Car Hire" HorizontalAlignment="Left" Height="26" Margin="10,265,0,0" VerticalAlignment="Top" Width="93" FontWeight="Bold"/>
+        <Label Content="Extras" HorizontalAlignment="Left" Height="26" Margin="10,139,0,0" VerticalAlignment="Top" Width="93" FontWeight="Bold"/>
+        <Label Content="Breakfast" HorizontalAlignment="Left" Height="26" Margin="10,199,0,0" VerticalAlignment="Top" Width="114"/>
+        <Label Content="Evening Meal" HorizontalAlignment="Left" Height="26" Margin="10,234,0,0" VerticalAlignment="Top" Width="83" RenderTransformOrigin="0.484,-0.885"/>
+        <Button x:Name="btnHireUp" Content="Update Hire" HorizontalAlignment="Left" Height="24" Margin="307,328,0,0" VerticalAlignment="Top" Width="93" Click="btnHireUp_Click"/>
+        <Button x:Name="btnHireAdd" Content="Add Hire" HorizontalAlignment="Left" Height="24" Margin="307,299,0,0" VerticalAlignment="Top" Width="93" Click="btnHireAdd_Click"/>
+        <Button x:Name="btnAddExtra" Content="Add Extras" HorizontalAlignment="Left" Height="23" Margin="307,181,0,0" VerticalAlignment="Top" Width="93" Click="btnAddExtra_Click"/>
+        <Button x:Name="btnUpExtras" Content="Update Extras" HorizontalAlignment="Left" Height="23" Margin="307,209,0,0" VerticalAlignment="Top" Width="93" Click="btnUpExtras_Click"/>
+        <Button x:Name="btnDelExtra" Content="Delete Extras" HorizontalAlignment="Left" Height="23" Margin="307,237,0,0" VerticalAlignment="Top" Width="93" Click="btnDelExtra_Click"/>
+        <Button x:Name="btnInfo" Content="Get Info" HorizontalAlignment="Left" Height="25" Margin="5,109,0,0" VerticalAlignment="Top" Width="88" Click="btnInfo_Click"/>
+        <Label Content="Veg" HorizontalAlignment="Left" Height="29" Margin="148,170,0,0" VerticalAlignment="Top" Width="43" FontWeight="Bold"/>
+        <Label Content="N/A" HorizontalAlignment="Left" Height="29" Margin="93,170,0,0" VerticalAlignment="Top" Width="41" FontWeight="Bold"/>
+        <Label Content="Dietary Req." HorizontalAlignment="Left" Height="27" Margin="10,167,0,0" VerticalAlignment="Top" Width="83"/>
+        <Label Content="Nut Allergy" HorizontalAlignment="Left" Height="29" Margin="205,170,0,0" VerticalAlignment="Top" Width="78" FontWeight="Bold"/>
+        <TextBox x:Name="txtBreakNA" HorizontalAlignment="Left" Height="21" Margin="93,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31" RenderTransformOrigin="0.25,0.524"/>
+        <TextBox x:Name="txtBreakVeg" HorizontalAlignment="Left" Height="21" Margin="151,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31"/>
+        <TextBox x:Name="txtBreakNut" HorizontalAlignment="Left" Height="21" Margin="224,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31" RenderTransformOrigin="1.419,0.667"/>
+        <TextBox x:Name="txtEveNA" HorizontalAlignment="Left" Height="21" Margin="93,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31"/>
+        <TextBox x:Name="txtEveVeg" HorizontalAlignment="Left" Height="21" Margin="151,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31"/>
+        <TextBox x:Name="txtEveNut" HorizontalAlignment="Left" Height="21" Margin="224,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="31"/>
     </Grid>
 </Window>

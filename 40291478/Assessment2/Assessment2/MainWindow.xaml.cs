@@ -23,13 +23,13 @@ namespace Assessment2
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    
+
     public partial class MainWindow : Window
     {
         //Creates singleton object
         CustomerSingleton cusSingle = new CustomerSingleton();
 
-        Customer cus ;
+        Customer cus;
 
         //Sets Ref Num to start at 0
         static int refno = 0;
@@ -57,53 +57,88 @@ namespace Assessment2
         }
 
         private void btnCustAdd_Click(object sender, RoutedEventArgs e)
-        {   
-            try
-        
         {
-            //Creates new instance of customers
-            cus = new Customer();               
-            cus.CustName = txtName.Text;
-            cus.CustAddress = txtAddress.Text;
-            cus.CustRef = int.Parse(txtCustRef.Text);
-            cusSingle.listofcustomers.Add(cus);
+            try
+            {
+                //Creates new instance of customers
+                cus = new Customer();
+                cus.CustName = txtName.Text;
+                cus.CustAddress = txtAddress.Text;
+                cus.CustRef = int.Parse(txtCustRef.Text);
+                cusSingle.listofcustomers.Add(cus);
 
-            //Clears the data after created
-            txtName.Text = string.Empty;
-            txtAddress.Text = string.Empty;
+                //Clears the data after created
+                txtName.Text = string.Empty;
+                txtAddress.Text = string.Empty;
 
             }
 
-            catch (Exception ex) 
-            { 
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message);
 
             }
             refno = refno + 1;
             txtCustRef.Text = refno.ToString();
-            
-         }
+
+        }
 
         private void btnInfo_Click(object sender, RoutedEventArgs e)
         {
+            //finds that object in the list based on reference number
             try
             {
-
-                if (cusSingle.listofcustomers.Contains(new Customer { CustRef = int.Parse(txtCustRef.Text) }))
+                Customer result = cusSingle.listofcustomers.Find(cus => cus.CustRef == int.Parse(txtCustRef.Text));
+                if (result == null)
                 {
-                    txtName.Text = cus.CustName;
-                    txtAddress.Text = cus.CustAddress;
-                    txtCustRef.Text = Convert.ToString(cus.CustRef);
+                    //if that object doesnt exists then return message
+                    throw new Exception("Customer doesnt exist");
                 }
                 else
                 {
-                    throw new Exception("Customer doesnt exist"); 
+                    //set fields to display the object that was found
+                    txtName.Text = result.CustName;
+                    txtAddress.Text = result.CustAddress;
+                    txtCustRef.Text = Convert.ToString(result.CustRef);
                 }
-                }
+            }
             catch (Exception x)
             {
                 MessageBox.Show(x.Message);
             }
-        }       
-      }
+        }
+
+        private void btnDelCust_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnUpCust_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //finds that object in the list based on reference number
+                Customer result = cusSingle.listofcustomers.Find(cus => cus.CustRef == int.Parse(txtCustRef.Text));
+                if (result == null)
+                {
+                    throw new Exception("Customer doesnt exist");
+                }
+                else
+                {
+                    //Update dates the object 
+                    result.CustName = txtName.Text;
+                    result.CustAddress = txtAddress.Text;
+                    result.CustRef = int.Parse(txtCustRef.Text);
+
+                    //Clears the data after created
+                    txtName.Text = string.Empty;
+                    txtAddress.Text = string.Empty;
+                }
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show(a.Message);
+            }
+        }
+    }
     }

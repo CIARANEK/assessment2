@@ -75,7 +75,7 @@ namespace Assessment2
             }
         }
         
-        List<Bookings> Bookings = new List<Bookings>();
+        public List<Bookings> listofbookings = new List<Bookings>();
         
     }
 }
