@@ -219,7 +219,7 @@ namespace Assessment2
         }
 
         //list of guests
-        public List<Guests> Guest = new List<Guests>();      
+        public List<Guests> listofguests = new List<Guests>();      
     }
     
     

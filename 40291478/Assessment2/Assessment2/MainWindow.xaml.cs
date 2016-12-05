@@ -28,11 +28,12 @@ namespace Assessment2
     {
         //Creates singleton object
         CustomerSingleton cusSingle = new CustomerSingleton();
-
+       
         Customer cus;
-
+        Booking newWin = null;
         //Sets Ref Num to start at 0
         static int refno = 0;
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -52,8 +53,18 @@ namespace Assessment2
         private void btnBook_Click(object sender, RoutedEventArgs e)
         {
             //Shows the Booking form
-            Booking newWin = new Booking();
-            newWin.Show();
+            
+            if (newWin == null)
+            {
+                newWin = new Booking();
+                newWin.Show();
+            }
+            else
+            {
+                newWin.Visibility = Visibility.Visible;
+                
+            }
+           newWin.Show();        
         }
 
         private void btnCustAdd_Click(object sender, RoutedEventArgs e)

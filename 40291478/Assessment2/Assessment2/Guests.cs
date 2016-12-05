@@ -30,7 +30,7 @@ namespace Assessment2
                     }
                     else
                     {
-                        throw new Exception("Please enter a valid First name");
+                        throw new Exception("Please enter a valid name");
                     }
                 }
                 catch (FormatException)
@@ -44,7 +44,7 @@ namespace Assessment2
             get { return passportnum; }
             set
             {
-                if (!String.IsNullOrEmpty(value))
+                if (!String.IsNullOrEmpty(value)) 
                 {
                     passportnum = value;
                 }
@@ -59,13 +59,13 @@ namespace Assessment2
             get { return age; }
             set
             {
-                if (age >= 18)
+                if (age >= 0 && age <= 101)
                 {
                     age = value;
                 }
                 else
                 {
-                    throw new Exception("Please enter a legal age");
+                    throw new Exception("Please enter your age");
                 }
             }
         }

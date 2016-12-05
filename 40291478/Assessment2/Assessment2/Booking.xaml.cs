@@ -23,9 +23,10 @@ namespace Assessment2
     /// //Booking GUI
     public partial class Booking : Window
     {
+        //Creates new instance 
         Customer cuslist= new Customer(); 
         Bookings book;
-
+        Guest newWin = null;
         //Sets Ref Num to start at 0
         static int refno = 0;
         public Booking()
@@ -35,19 +36,38 @@ namespace Assessment2
             //Sets Ref Num to 1
             refno = refno + 1;
             txtBookRef.Text = refno.ToString();
+            
+            //Sets extras to zero
+            txtBreakNA.Text = "0";
+            txtBreakVeg.Text = "0";
+            txtBreakNut.Text = "0";
+            txtEveNA.Text = "0";
+            txtEveVeg.Text = "0";
+            txtEveNut.Text = "0";
         }
 
         private void btnCust_Click(object sender, RoutedEventArgs e)
         {
-            //Closes the booking window 
-            this.WindowState = WindowState.Minimized;
+            //Shows the customer window 
+            this.Visibility = Visibility.Hidden;
+                       
         }
 
         private void btnGuests_Click(object sender, RoutedEventArgs e)
         {
-            //Shows the guest window
-            Guest newWin = new Guest();
-            newWin.Show();
+            //Hides the guest window
+            if (newWin == null)
+            {
+                newWin = new Guest();
+                newWin.Show();
+            }
+            else
+            {
+                newWin.Visibility = Visibility.Visible;
+                
+            }
+           newWin.Show();        
+        
         }
 
         private void btnInvoice_Click(object sender, RoutedEventArgs e)
@@ -55,6 +75,7 @@ namespace Assessment2
             //Shows the invoice window
             Invoice newWin = new Invoice();
             newWin.Show();
+            
         }
 
         private void btnAddBook_Click(object sender, RoutedEventArgs e)
@@ -68,6 +89,7 @@ namespace Assessment2
                 book.Depart = dpDepart.Text;
                 book.BookRef = int.Parse(txtBookRef.Text);
                 cuslist.listofbookings.Add(book);
+                
 
                 //Clear data
                 dpArrive.Text = string.Empty;
@@ -135,12 +157,12 @@ namespace Assessment2
             }
 
             //Clear fields
-            txtBreakNA.Text = string.Empty;
-            txtBreakVeg.Text = string.Empty;
-            txtBreakNut.Text = string.Empty;
-            txtEveNA.Text = string.Empty;
-            txtEveVeg.Text = string.Empty;
-            txtEveNut.Text = string.Empty;
+            txtBreakNA.Text = "0";
+            txtBreakVeg.Text = "0";
+            txtBreakNut.Text = "0";
+            txtEveNA.Text = "0";
+            txtEveVeg.Text = "0";
+            txtEveNut.Text = "0";
         }
 
 
@@ -253,12 +275,12 @@ namespace Assessment2
 
 
                     //Clear fields
-                    txtBreakNA.Text = string.Empty;
-                    txtBreakVeg.Text = string.Empty;
-                    txtBreakNut.Text = string.Empty;
-                    txtEveNA.Text = string.Empty;
-                    txtEveVeg.Text = string.Empty;
-                    txtEveNut.Text = string.Empty;
+                    txtBreakNA.Text = "0";
+                    txtBreakVeg.Text = "0";
+                    txtBreakNut.Text = "0";
+                    txtEveNA.Text = "0";
+                    txtEveVeg.Text = "0";
+                    txtEveNut.Text = "0";
 
                 }
             }
@@ -319,12 +341,12 @@ namespace Assessment2
                     //clears the fields
                     dpArrive.Text = string.Empty;
                     dpDepart.Text = string.Empty;
-                    txtBreakNA.Text = string.Empty;
-                    txtBreakVeg.Text = string.Empty;
-                    txtBreakNut.Text = string.Empty;
-                    txtEveNA.Text = string.Empty;
-                    txtEveVeg.Text = string.Empty;
-                    txtEveNut.Text = string.Empty;
+                    txtBreakNA.Text = "0";
+                    txtBreakVeg.Text = "0";
+                    txtBreakNut.Text = "0";
+                    txtEveNA.Text = "0";
+                    txtEveVeg.Text = "0";
+                    txtEveNut.Text = "0";
                     dpStart.Text = string.Empty;
                     dpEnd.Text = string.Empty;
                     txtDriver.Text = string.Empty;
@@ -381,12 +403,12 @@ namespace Assessment2
                     
 
                     //Clear hire fields
-                    txtBreakNA.Text = string.Empty;
-                    txtBreakVeg.Text = string.Empty;
-                    txtBreakNut.Text = string.Empty;
-                    txtEveNA.Text = string.Empty;
-                    txtEveVeg.Text = string.Empty;
-                    txtEveNut.Text = string.Empty;
+                    txtBreakNA.Text = "0";
+                    txtBreakVeg.Text = "0";
+                    txtBreakNut.Text = "0";
+                    txtEveNA.Text = "0";
+                    txtEveVeg.Text = "0";
+                    txtEveNut.Text = "0";
                 }
             }
                 catch (Exception x)
