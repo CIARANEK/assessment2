@@ -28,7 +28,7 @@ namespace Assessment2
     {
         //Creates singleton object
         CustomerSingleton cusSingle = new CustomerSingleton();
-       
+        
         Customer cus;
         Booking newWin = null;
         //Sets Ref Num to start at 0
@@ -48,12 +48,11 @@ namespace Assessment2
             txtName.Text = string.Empty;
             txtAddress.Text = string.Empty;
             txtCustRef.Text = string.Empty;
-        }
-
+        }       
         private void btnBook_Click(object sender, RoutedEventArgs e)
         {
-            //Shows the Booking form
-            
+            //Shows the Booking form 
+            //if an instance of booking doesnt exists it will create one            
             if (newWin == null)
             {
                 newWin = new Booking();
@@ -61,12 +60,13 @@ namespace Assessment2
             }
             else
             {
+                //If it does exist it will be shown
                 newWin.Visibility = Visibility.Visible;
                 
             }
            newWin.Show();        
         }
-
+        
         private void btnCustAdd_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -89,11 +89,12 @@ namespace Assessment2
                 MessageBox.Show(ex.Message);
 
             }
+            //Increments the customer refernce number
             refno = refno + 1;
             txtCustRef.Text = refno.ToString();
 
         }
-
+                  
         private void btnInfo_Click(object sender, RoutedEventArgs e)
         {
             //finds that object in the list based on reference number
@@ -121,7 +122,29 @@ namespace Assessment2
 
         private void btnDelCust_Click(object sender, RoutedEventArgs e)
         {
+            //Deletes customer only if they dont have a booking
+            try
+            {
+                Customer result = cusSingle.listofcustomers.Find(cus => cus.CustRef == int.Parse(txtCustRef.Text));
+                if (result == null)
+                {
+                    //if it doesnt exists return message
+                    throw new Exception("Customer doesnt exist");
+                }
+                else
+                {
+                    //Removes customer from list
+                    cusSingle.listofcustomers.Remove(cus);
 
+                    //clears the fields
+                    txtName.Text = string.Empty;
+                    txtAddress.Text = string.Empty;
+                }
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+            }
         }
 
         private void btnUpCust_Click(object sender, RoutedEventArgs e)
@@ -150,6 +173,6 @@ namespace Assessment2
             {
                 MessageBox.Show(a.Message);
             }
-        }
+        }              
     }
     }

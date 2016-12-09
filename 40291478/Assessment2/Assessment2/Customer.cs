@@ -13,11 +13,12 @@ namespace Assessment2
 {
     class Customer
     {
-        
+        //declares private variables
         private string custname;
         private string custaddress;
         private int custref;
-        
+
+        //Get/Set for all variables, with validation and error messages
         public string CustName
         {
             get { return custname; }

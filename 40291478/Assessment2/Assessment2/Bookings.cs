@@ -14,34 +14,35 @@ namespace Assessment2
     class Bookings
     {
         //Declare private variables
-        private string arrive;
-        private string depart;
+        private DateTime arrive;
+        private DateTime depart;
         private int bookref;
+        private int noofguest;
         private int breakna;
         private int breakveg;
         private int breaknut;
         private int evena;
         private int eveveg;
         private int evenut;
-        private string hirestart;
-        private string hireend;
+        private DateTime hirestart;
+        private DateTime hireend;
         private string drivername;
 
         //Get/Set for all variables, with validation and error messages
-        public string Arrive
+        public DateTime Arrive
         {
             get { return arrive; }
             set
             {
                 try
                 {
-                    if (!String.IsNullOrEmpty(value))
+                    if (arrive == null)
                     {
-                        arrive = value;
+                       throw new Exception("Please enter arrive valid arrival date");
                     }
                     else
                     {
-                        throw new Exception("Please enter arrive valid arrival date");
+                        arrive = value;
                     }
                 }
                 catch(FormatException)
@@ -51,18 +52,18 @@ namespace Assessment2
             }
         }
 
-        public string Depart
+        public DateTime Depart
         {
             get { return depart; }
             set
             {
-                if (!String.IsNullOrEmpty(value))
+                if (depart == null)
                 {
-                    depart = value;
+                    throw new Exception("Please enter a valid departure date");
                 }
                 else
                 {
-                    throw new Exception("Please enter a valid departure date");
+                    depart = value;
                 }
             }
         }
@@ -81,6 +82,23 @@ namespace Assessment2
                     }
                 }
             }
+            public int NoOfGuest
+            {       //Gets the number of guests                
+                    get { return noofguest; }
+                    set
+                    {
+                        //Sets the number of guests if it is less than 5
+                    if (noofguest <= 0 && noofguest >=5)
+                    {
+                        throw new Exception("Please enter a valid number of guests. Max of 4");
+                    }
+                    else
+                    {
+                        noofguest = value;
+                    }
+                }      
+            }
+                     
         public int BreakNA
             {
                 get { return breakna; }
@@ -107,6 +125,7 @@ namespace Assessment2
                 }
                 else
                 {
+
                     breakveg = value;
                 }
             }
@@ -172,33 +191,33 @@ namespace Assessment2
             }
         }
 
-        public string HireStart
+        public DateTime HireStart
         {
             get { return hirestart; }
             set
             {
-                if (!String.IsNullOrEmpty(value))
-                {
-                    hirestart = value;
-                }
-                else
+                if (hirestart == null)
                 {
                     throw new Exception("Please enter a hire start date");
                 }
+                else
+                {
+                    hirestart = value;
+                }
             }
         }
-        public string HireEnd
+        public DateTime HireEnd
         {
             get { return hireend; }
             set
             {
-                if (!String.IsNullOrEmpty(value))
+                if (hireend == null)
                 {
-                    hireend = value;
+                    throw new Exception("Please enter a hire end date");
                 }
                 else
                 {
-                    throw new Exception("Please enter a hire end date");
+                    hireend = value;
                 }
             }
         }
@@ -219,7 +238,8 @@ namespace Assessment2
         }
 
         //list of guests
-        public List<Guests> listofguests = new List<Guests>();      
+        public List<Guests> listofguests = new List<Guests>();
+        
     }
     
     

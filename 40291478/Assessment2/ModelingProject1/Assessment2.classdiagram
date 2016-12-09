@@ -1,0 +1,334 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="10d794c4-30ad-44b8-a022-1a01cf230d3f" name="Assessment2" linkedPackageId="b191dd0d-9832-4fff-9bab-ce5eba5e15ba" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <ownedCommentsInternal>
+    <comment Id="9168f1f6-24df-4ec4-be3d-e3deb916c4cb">
+      <elementDefinition Id="df844b67-6d4b-4629-81c5-7f80269161c8" />
+      <body>Singleton design pattern used so that only one instance of customer can exists at one time</body>
+    </comment>
+  </ownedCommentsInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="16f1dc4e-0153-4e41-bfa6-d8c4762175b2">
+      <profileInstance Id="de6e6c4e-e0f8-4ec9-979a-41018da997e2" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="72d24af0-0c9a-4a6a-87ac-3be1533bed38">
+      <profileInstance Id="8e3f81b4-338f-4908-90b2-0adcd13e8f3d" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="a226950f-8902-44e3-9ea5-9ff87e1db78d" name="CustomerSingleton" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a4a47460-082c-4db7-b9b3-5197cc57306e" />
+        <ownedOperationsInternal>
+          <operation Id="9ef2dbd5-b42e-458f-8659-d2cdf2f9f54b" name="listofcustomers" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="318bda49-99ac-4e8c-92c2-ac4daa6b494e" />
+          </operation>
+          <operation Id="d7af0073-4e79-469b-a462-b9990b963a89" name="CustomerSingleton instance" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f7a5909f-7544-4108-86b8-45078d453cef" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4b8777aa-80e3-4aa3-9528-6c52e131f02b" name="Customer" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5ae4f4e4-d909-4dfc-b109-dff293fb2747" />
+        <targetEnds>
+          <association Id="03060810-715c-4164-9f49-7f40fe2f9753" isDerived="false" sourceEndRoleName="Customer" targetEndRoleName="CustomerSingleton" isLeaf="false" isAbstract="false">
+            <classMoniker Id="a226950f-8902-44e3-9ea5-9ff87e1db78d" LastKnownName="CustomerSingleton" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="48326bd6-01b6-4a7f-9b65-945d6120f932" name="Customer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="4b5f65ab-9ed8-41e6-8548-2b5125f0b97b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="80289a6e-296c-4b7c-b0e1-671af8b5a173" name="CustomerSingleton" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="b316ac29-34a6-4bdc-968a-53afae2e353f" name="Lower" value="M">
+                      <elementDefinition Id="3d358787-efc7-426d-856f-90467e7e6b3e" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="9ca224ee-a854-4ee1-861f-f8cbc72fa21e" name="Upper" value="M">
+                      <elementDefinition Id="14bb8960-bfcb-4b79-a7b3-1e7dc857f734" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="6743ac76-60dd-49fa-9c5f-2dd2870a8143" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="15fe14d5-416c-44fa-8e5f-c174792debc2" />
+          </association>
+          <association Id="8d664f1f-7c8f-4c74-97f0-76cbd5207562" isDerived="false" sourceEndRoleName="Customer" targetEndRoleName="Bookings" isLeaf="false" isAbstract="false">
+            <classMoniker Id="3354cee0-e8ea-4231-b944-31bd000b3e14" LastKnownName="Bookings" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e6b017d1-c3df-4b57-b3e4-0eb96be3b986" name="Customer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="2af27086-7006-4726-a532-b1e9e80a31ff" name="Lower" value="1">
+                      <elementDefinition Id="72930f81-38ac-4019-b5f0-8f2dabed12aa" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="8496ea50-4623-4d01-8254-fc6b57dce37a" name="Upper" value="1">
+                      <elementDefinition Id="bcef8de2-928e-4229-b45e-5130e4b8e916" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="ebf3e01f-9c71-473b-b722-bb1b598ddb87" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="91a78e23-74cf-4428-9cde-a46b653ee4f8" name="Bookings" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="22ef25ea-862b-4481-9c5b-a60aba4f9ecb" name="Lower" value="1:M">
+                      <elementDefinition Id="878fda45-4615-495d-b3a8-be2ae7009d53" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="f36726d9-0824-4a97-8a2e-47eb8defe7ac" name="Upper" value="1:M">
+                      <elementDefinition Id="9fd5cdb6-9896-40e3-bcff-7b5baee1dbd0" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="ce4924f4-5cc8-44fe-b6ab-434e5f48e120" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="d4e8adad-440d-428d-bafb-9e686cadec3d" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="a0e6173c-bc97-414e-bc25-a6f8baf70fe5" name="custname" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="65e298d7-00da-4d11-a5f5-ea5ce06ba923" />
+          </property>
+          <property Id="d7328af1-b49c-4352-b8b5-b0c174301b82" name="custaddress" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f4127da4-a7c1-4c2c-9ef1-cadae69f2de5" />
+          </property>
+          <property Id="f08711ef-4f06-478f-a427-1b6cb85bd49d" name="custref" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="9d7b69f1-9061-4125-9845-875943b8d090" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="1a6a1020-22e7-434b-981a-78bdcf484b10" name="GetSet" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="0e5db3a7-5f16-474c-80f0-7cb72c953b38" />
+          </operation>
+          <operation Id="df76eccc-40eb-471b-be75-abf8ca7741f9" name="listofbookings" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="1b690984-9b4b-4569-9383-63e4d814260f" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="3354cee0-e8ea-4231-b944-31bd000b3e14" name="Bookings" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="53f014e4-709f-4ee0-b9f8-8d4301b356c7" />
+        <targetEnds>
+          <association Id="624e9ef0-78b0-430b-944b-c7700ba7efe0" isDerived="false" sourceEndRoleName="Bookings" targetEndRoleName="Guests" isLeaf="false" isAbstract="false">
+            <classMoniker Id="4f5ff6b2-b576-4f70-aab0-30ba37a769fb" LastKnownName="Guests" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="28b8ef67-dc8d-45c3-86e9-04287410fcbe" name="Bookings" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="9803035a-3350-4442-a98e-fd3a09d9f73f" name="Lower" value="1:1">
+                      <elementDefinition Id="d7975713-5522-40a1-b9b4-1083247ae2a6" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="92f45d62-95f2-4aad-b747-a7e10e5c1d22" name="Upper" value="1:1">
+                      <elementDefinition Id="70ce05e1-e719-41b0-b95d-b530c55f4b41" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="d8da6297-7bdd-46b7-87e5-b764ac1261de" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a14ef07e-ac6e-491e-bf76-491c400315bf" name="Guests" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="dd7815a0-41cb-4680-b143-a3c4e426c9cb" name="Lower" value="1:M">
+                      <elementDefinition Id="e0bc1347-36bb-4989-87fe-5b9732a520e5" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="2c9219e8-99c3-47e0-9542-375668e35171" name="Upper" value="1:M">
+                      <elementDefinition Id="a1a15b06-1500-4c28-beb7-b8a808c3cd9d" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="0f73b05a-e2f5-43a8-9932-70e1da539250" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="da63f396-386f-49fb-b176-c0096c3bf11d" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="4bc714fa-10d7-4719-b5e1-ecace10916a8" name="arrive" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="8306ac83-a5b6-4366-aeb0-6920fb4416e6" />
+          </property>
+          <property Id="f9c0583b-e6ab-4a47-831a-f628177fd147" name="depart" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5a65ac2e-8669-4dbc-b73e-f35ee6cf6c4e" />
+          </property>
+          <property Id="6b4ab048-847e-46cc-a381-780131cec0df" name="bookref" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c6664637-826a-4b29-952a-f8f0bcef5cfc" />
+          </property>
+          <property Id="abd720b9-e1e9-4a89-a9a4-a3a41ee04773" name="noofguests" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a16d18f7-d1cb-4cdf-a243-78672f7ba343" />
+          </property>
+          <property Id="b73e1ac8-1023-4249-b7e5-6d33d69f55b9" name="breakna" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="0224ce83-0f71-4231-9dc3-e1c039f92374" />
+          </property>
+          <property Id="e6e71cdf-3d1f-4fa2-841b-02ab87c44a92" name="breakveg" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="2b485ab5-7df5-4b83-b2a3-aaff2a507ae5" />
+          </property>
+          <property Id="6e7f5f77-790d-4006-b215-e25f3825b11e" name="breaknut" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="2fe334ca-6832-4390-bac4-09909e417886" />
+          </property>
+          <property Id="efb0745f-0354-45bd-a167-5a8208321b51" name="evena" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="996dc128-4f1d-47bf-9e97-11a8af1fdb6f" />
+          </property>
+          <property Id="30313668-b9fa-48c3-b598-ab720e1c94bd" name="eveveg" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ca723772-7833-465f-89a2-830b8301935d" />
+          </property>
+          <property Id="d6f8d052-e1ed-48f9-8702-9cf09a906a7d" name="evenut" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5ee258f4-a7e1-467d-be4d-e7d374b954bd" />
+          </property>
+          <property Id="57bc0f06-d668-4095-b29b-19c78a84af4e" name="hirestart" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="9fea94ba-5c29-4524-85e1-a7f36236ea61" />
+          </property>
+          <property Id="41bf3f65-77d8-4adc-a3e9-f306d2a1e3ce" name="hireend" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ab1f0dcd-ce4b-4bd7-a17c-9410dbf6e8c6" />
+          </property>
+          <property Id="c4333224-eb6d-4cff-99b7-ffa4ad899680" name="drivername" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="491369d6-3537-4cb9-ac7d-af5771a29239" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="fbe62948-d358-459d-b631-71ef2f9b3fe6" name="GetSet" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a5e0120a-9255-428c-848b-a85c21f48472" />
+          </operation>
+          <operation Id="31253b15-71da-4306-9b37-0f2ae1a4699a" name="listofguests" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="712ab9ab-66f3-4b37-aec6-466b8aa9d21d" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4f5ff6b2-b576-4f70-aab0-30ba37a769fb" name="Guests" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2d7f8611-67b3-4a88-b2f3-bff27eca62fa" />
+        <ownedAttributesInternal>
+          <property Id="db3e6716-13da-41fc-8bbf-f917c8f32be0" name="guestname" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a62ff367-247c-419b-9316-550907390e63" />
+          </property>
+          <property Id="438e860f-afc1-45c2-8ce5-88276d9853d7" name="passportnum" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="e33b02ac-c844-46be-a477-f8fc3bdac76e" />
+          </property>
+          <property Id="e1d5546b-adc3-45b6-8642-307c188514c4" name="age" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ece566fa-d7dd-45e0-8e9d-ea84d464dfff" />
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="17556b64-1077-42cb-b5c8-77294d749b79" name="GetSet" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="64c62b37-330e-419b-b683-bfaabeb33729" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="81917824-77bf-443f-b1e3-4d688a0af5cc" name="MainWindow" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c492391c-c5f8-4965-a64b-e784b9ce914c" />
+        <generalsInternal>
+          <generalization Id="f982e9ea-ec18-41d1-9a62-7290ece43dcb" isSubstitutable="false">
+            <interfaceMoniker Id="f4a1ce14-96e6-417e-9893-892a47008174" LastKnownName="Booking" />
+            <elementDefinition Id="befa3946-f4e3-4d89-90b0-a8fadb365b62" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="5fdc4d59-0830-4e4b-86a5-5c93c9e4007f" isDerived="false" sourceEndRoleName="MainWindow" targetEndRoleName="Customer" isLeaf="false" isAbstract="false">
+            <classMoniker Id="4b8777aa-80e3-4aa3-9528-6c52e131f02b" LastKnownName="Customer" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c5eafda8-d86d-42e1-8645-76263d6ebc5e" name="MainWindow" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="95083936-a40d-42bd-a419-4e17ead8564b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="47355f13-976a-4d96-b08d-c205ae2ec437" name="Customer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f9a99ad9-8b23-496f-a74c-4d20a46fe28f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="925876e3-6527-4e9a-9547-6837732d9d37" />
+          </association>
+        </targetEnds>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="f4a1ce14-96e6-417e-9893-892a47008174" name="Booking" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="63acceb6-8e33-4e16-ab79-f7899d9dd62a" />
+        <targetEnds>
+          <association Id="0b99e9f0-a6eb-4065-9607-47816f86158c" isDerived="false" sourceEndRoleName="Booking" targetEndRoleName="Bookings" isLeaf="false" isAbstract="false">
+            <classMoniker Id="3354cee0-e8ea-4231-b944-31bd000b3e14" LastKnownName="Bookings" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7e5b0567-d9dc-4867-acae-ba4c161fdcea" name="Booking" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ac8b79b4-4f93-4e0a-9928-c4ed1605e601" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="661c817e-3b56-4132-9324-f685f9bde8ef" name="Bookings" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="76f0120f-f4b0-4aa1-93bd-a5709bff4992" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f16c7fa6-af2e-4f25-a848-ee4bb6ae1b6a" />
+          </association>
+        </targetEnds>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="051b0f60-5b68-4089-80aa-0d8fc799c8ce" name="Guest" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6ee18690-0865-4e8a-923e-c64a82d92dca" />
+        <generalsInternal>
+          <generalization Id="3e3a2f64-b544-48b1-8101-4717789c06e3" isSubstitutable="false">
+            <interfaceMoniker Id="f4a1ce14-96e6-417e-9893-892a47008174" LastKnownName="Booking" />
+            <elementDefinition Id="c33e1b9c-4a66-4f3e-9a3c-8e5e87b88639" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="47b0cda5-1a17-47c6-a2dc-6ca11f7a53ef" isDerived="false" sourceEndRoleName="Guest" targetEndRoleName="Guests" isLeaf="false" isAbstract="false">
+            <classMoniker Id="4f5ff6b2-b576-4f70-aab0-30ba37a769fb" LastKnownName="Guests" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6f687af8-ceeb-4705-b2ed-d3d7abc2f2bf" name="Guest" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a3882184-f737-4e1d-886d-f48574f7b756" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2a7d7ce3-7405-48aa-945a-9ca211d8257e" name="Guests" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="1c6e72f1-0f27-4194-af00-bff25f28bc37" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="ed940bef-0db2-4ddb-913d-7a87483d3d0e" />
+          </association>
+        </targetEnds>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="6a866391-ca9e-4ff1-b05d-d9418b1d4fab" name="Invoice" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="464979c4-0759-435f-94fb-b239068b525c" />
+        <generalsInternal>
+          <generalization Id="e88a53fe-34ea-4524-bbe8-ab2cd97d1b13" isSubstitutable="false">
+            <interfaceMoniker Id="f4a1ce14-96e6-417e-9893-892a47008174" LastKnownName="Booking" />
+            <elementDefinition Id="26a3612d-b568-4396-93b2-d2717498d83f" />
+          </generalization>
+        </generalsInternal>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="b191dd0d-9832-4fff-9bab-ce5eba5e15ba" name="ModelingProject1">
+    <elementDefinition Id="5560e610-ea4e-4fad-8bcd-6f4851a6e821" />
+  </package>
+</logicalClassDesignerModel>

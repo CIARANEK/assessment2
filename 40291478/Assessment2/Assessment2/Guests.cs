@@ -13,10 +13,12 @@ namespace Assessment2
 {
     class Guests
     {
+        //Declare private variables
         private string guestname;
         private string passportnum;
         private int age;
 
+        //Get/Set for all variables, with validation and error messages
         public string Guestname
         {
             get { return guestname; }

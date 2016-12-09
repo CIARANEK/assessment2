@@ -25,14 +25,14 @@ namespace Assessment2
     {
         //Creates new instance 
         Customer cuslist= new Customer(); 
-        Bookings book;
+        Bookings book ;
         Guest newWin = null;
         //Sets Ref Num to start at 0
         static int refno = 0;
         public Booking()
         {
             InitializeComponent();
-
+            
             //Sets Ref Num to 1
             refno = refno + 1;
             txtBookRef.Text = refno.ToString();
@@ -44,6 +44,7 @@ namespace Assessment2
             txtEveNA.Text = "0";
             txtEveVeg.Text = "0";
             txtEveNut.Text = "0";
+            
         }
 
         private void btnCust_Click(object sender, RoutedEventArgs e)
@@ -55,25 +56,29 @@ namespace Assessment2
 
         private void btnGuests_Click(object sender, RoutedEventArgs e)
         {
-            //Hides the guest window
-            if (newWin == null)
-            {
-                newWin = new Guest();
-                newWin.Show();
-            }
-            else
-            {
-                newWin.Visibility = Visibility.Visible;
-                
-            }
-           newWin.Show();        
-        
-        }
+            
+                    //Hides the guest window
+                    if (newWin == null)
+                    {
+                        newWin = new Guest(int.Parse(txtnoguest.Text));
+                        newWin.Show();
+                    }
+                    else
+                    {
+                        newWin.Visibility = Visibility.Visible;
 
+                    }
+                    newWin.Show();
+        }
+                
+        
         private void btnInvoice_Click(object sender, RoutedEventArgs e)
         {
+            
+                             
             //Shows the invoice window
-            Invoice newWin = new Invoice();
+            Invoice newWin = new Invoice(book.BookRef, book.Arrive, book.Depart, book.HireStart, book.HireEnd, book.BreakNA, book.BreakVeg,
+                book.BreakNut, book.EveNA, book.EveVeg, book.EveNut, book.NoOfGuest);
             newWin.Show();
             
         }
@@ -81,16 +86,18 @@ namespace Assessment2
         private void btnAddBook_Click(object sender, RoutedEventArgs e)
         {
             try
-            {          
+            {
+                       
                 //Creates new instance of bookings
-                //Adds to the list of bookings
-                book = new Bookings();
-                book.Arrive = dpArrive.Text;
-                book.Depart = dpDepart.Text;
+                //Adds to the list of bookings               
+                book = new Bookings();                
+                book.Arrive = Convert.ToDateTime(dpArrive.Text);
+                book.Depart = Convert.ToDateTime(dpDepart.Text);
                 book.BookRef = int.Parse(txtBookRef.Text);
+                book.NoOfGuest = int.Parse(txtnoguest.Text);
                 cuslist.listofbookings.Add(book);
                 
-
+                
                 //Clear data
                 dpArrive.Text = string.Empty;
                 dpDepart.Text = string.Empty;
@@ -115,11 +122,7 @@ namespace Assessment2
                 int sum = Convert.ToInt32(txtBreakNA.Text) + Convert.ToInt32(txtBreakVeg.Text) + Convert.ToInt32(txtBreakNut.Text);
 
                 //Checks to see too many meals have been selected
-                if (sum >= 5)
-                {
-                    throw new Exception("Too many Breakfast meals added. Only a total of four are allowed");
-                }
-                else
+                if (sum ==  book.NoOfGuest)
                 {
                     //Adds to the list of bookings
                     book.BreakNA = int.Parse(txtBreakNA.Text);
@@ -130,6 +133,12 @@ namespace Assessment2
                     book.EveNut = int.Parse(txtEveNut.Text);
                     cuslist.listofbookings.Add(book);
                 }
+                else
+                {
+                    
+                    throw new Exception("Too many Breakfast meals added. Only a total of " +book.NoOfGuest + " are allowed");
+                    
+                }
             }
             catch (Exception ex)
             {
@@ -138,17 +147,18 @@ namespace Assessment2
             try
             {
                 int summ = Convert.ToInt32(txtEveNA.Text) + Convert.ToInt32(txtEveVeg.Text) + Convert.ToInt32(txtEveNut.Text);
-                if (summ >= 5)
-                {
-                    throw new Exception("Too many Evening meals added. Only a total of four are allowed");
-                }
-                else
+                if (summ == book.NoOfGuest)
                 {
                     //Adds to the list of bookings                   
                     book.EveNA = int.Parse(txtEveNA.Text);
                     book.EveVeg = int.Parse(txtEveVeg.Text);
                     book.EveNut = int.Parse(txtEveNut.Text);
                     cuslist.listofbookings.Add(book);
+                }
+                else
+                {
+                    throw new Exception("Too many Evening meals added. Only a total of " + book.NoOfGuest +" are allowed");
+                    
                 }
             }
             catch (Exception z)
@@ -171,8 +181,8 @@ namespace Assessment2
             try
             {
                 //Adds to list
-                book.HireStart = dpStart.Text;
-                book.HireEnd = dpEnd.Text;
+                book.HireStart = Convert.ToDateTime(dpStart.Text);
+                book.HireEnd = Convert.ToDateTime(dpEnd.Text);
                 book.DriverName = txtDriver.Text;
                 cuslist.listofbookings.Add(book);
 
@@ -201,18 +211,19 @@ namespace Assessment2
                 else
                 {
                     //Set fields with that object 
-                    dpArrive.Text = result.Arrive;
-                    dpDepart.Text = result.Depart;
+                    dpArrive.Text = Convert.ToString(result.Arrive);
+                    dpDepart.Text = Convert.ToString(result.Depart);
                     txtBookRef.Text = Convert.ToString(result.BookRef);
+                    txtnoguest.Text = Convert.ToString(result.NoOfGuest);
                     txtBreakNA.Text = Convert.ToString(result.BreakNA);
                     txtBreakVeg.Text = Convert.ToString(result.BreakVeg);
                     txtBreakNut.Text = Convert.ToString(result.BreakNut);
                     txtEveNA.Text = Convert.ToString(result.EveNA);
                     txtEveVeg.Text = Convert.ToString(result.EveVeg);
                     txtEveNut.Text = Convert.ToString(result.EveNut);
-                    dpStart.Text = result.HireStart;
-                    dpEnd.Text = result.HireEnd;
-                    txtDriver.Text = result.DriverName;
+                    dpStart.Text = Convert.ToString(result.HireStart);
+                    dpEnd.Text = Convert.ToString(result.HireEnd);
+                    txtDriver.Text = Convert.ToString(result.DriverName);
 
 
                 }
@@ -236,9 +247,10 @@ namespace Assessment2
                 else
                 {
                     //Set fields with that object 
-                    result.Arrive = dpArrive.Text;
-                    result.Depart = dpDepart.Text;
+                    result.Arrive = Convert.ToDateTime(dpArrive.Text);
+                    result.Depart = Convert.ToDateTime(dpDepart.Text);
                     result.BookRef = int.Parse(txtBookRef.Text);
+                    result.NoOfGuest = int.Parse(txtnoguest.Text);
 
                     //Clear fields
                     dpArrive.Text = string.Empty;
@@ -304,8 +316,8 @@ namespace Assessment2
                 else
                 {
                     //Set fields with that object 
-                    result.HireStart = dpStart.Text;
-                    result.HireEnd = dpEnd.Text;
+                    result.HireStart = Convert.ToDateTime(dpStart.Text);
+                    result.HireEnd = Convert.ToDateTime(dpEnd.Text);
                     result.DriverName = txtDriver.Text;
 
 
@@ -341,6 +353,7 @@ namespace Assessment2
                     //clears the fields
                     dpArrive.Text = string.Empty;
                     dpDepart.Text = string.Empty;
+                    txtnoguest.Text = string.Empty;
                     txtBreakNA.Text = "0";
                     txtBreakVeg.Text = "0";
                     txtBreakNut.Text = "0";
@@ -372,9 +385,10 @@ namespace Assessment2
                 else
                 {
                     //Reset/Delete hire from booking
-                    //cuslist.listofbookings.Remove();
+                    result.HireStart = Convert.ToDateTime(string.Empty);
+                    result.HireEnd = Convert.ToDateTime(string.Empty);
+                    result.DriverName = string.Empty;
                     
-
                     //Clear hire fields
                     dpStart.Text = string.Empty;
                     dpEnd.Text = string.Empty;
@@ -400,7 +414,12 @@ namespace Assessment2
                 else
                 {
                     //Reset/Delete extras from booking
-                    
+                    result.BreakNA = int.Parse(string.Empty);
+                    result.BreakVeg = int.Parse(string.Empty);
+                    result.BreakNut = int.Parse(string.Empty);
+                    result.EveNA = int.Parse(string.Empty);
+                    result.EveVeg = int.Parse(string.Empty);
+                    result.EveNut = int.Parse(string.Empty);
 
                     //Clear hire fields
                     txtBreakNA.Text = "0";
@@ -415,7 +434,7 @@ namespace Assessment2
                 {
                 MessageBox.Show(x.Message);
                 }
-            }
+            }       
         }
        }
 

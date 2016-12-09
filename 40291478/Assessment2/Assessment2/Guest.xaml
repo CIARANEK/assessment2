@@ -14,6 +14,8 @@
         <Button x:Name="btnGetInfo" Content="Get Info" HorizontalAlignment="Left" Height="26" Margin="209,154,0,0" VerticalAlignment="Top" Width="88" Click="btnGetInfo_Click"/>
         <Button x:Name="btnAmend" Content="Amend Guest" HorizontalAlignment="Left" Height="26" Margin="10,185,0,0" VerticalAlignment="Top" Width="88" Click="btnAmend_Click"/>
         <Button x:Name="btnDel" Content="Delete Guest" HorizontalAlignment="Left" Height="26" Margin="209,185,0,0" VerticalAlignment="Top" Width="88" Click="btnDel_Click"/>
+        <Label Content="Number of Guests to enter" HorizontalAlignment="Left" Height="26" Margin="1,106,0,0" VerticalAlignment="Top" Width="153"/>
+        <Label x:Name="lblguestno" Content="" HorizontalAlignment="Left" Height="26" Margin="166,106,0,0" VerticalAlignment="Top" Width="53"/>
 
     </Grid>
 </Window>

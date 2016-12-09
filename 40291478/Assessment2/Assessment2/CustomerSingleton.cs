@@ -15,11 +15,13 @@ namespace Assessment2
     {
         //List of customers
         public List<Customer> listofcustomers = new List<Customer>();
-              
+
+       
         private static CustomerSingleton instance;
                 
         private static CustomerSingleton Instance()
     {
+               //If instance is null it will create a new instance
             if (instance == null)
             {
                 instance = new CustomerSingleton();
